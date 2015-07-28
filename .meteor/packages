@@ -13,3 +13,7 @@ service-configuration
 accounts-ui
 accounts-password
 iron:router
+meteorhacks:npm
+
+
+npm-container
