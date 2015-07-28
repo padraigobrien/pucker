@@ -3,7 +3,7 @@ Template.login.events({
         Meteor.loginWithFacebook({ requestPermissions: ['email', 'public_profile']}, function(err){
             console.log(Meteor.user());
             console.log(Meteor.user().profile.name);
-            //console.log(Meteor.user().services.facebook.accessToken);
+            console.log(Meteor.user().profile.picture);
             Router.go('/home');
         });
     }
