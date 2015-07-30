@@ -18,15 +18,15 @@ OnBeforeActions = {
 };
 //
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
-    only: ['home']
+    only: ['home','main','profile']
 });
 
 Router.map( function () {
-    this.route('home', {
+    this.route('profile', {
         path: '/'
     });
 
-    this.route('/', {
+    this.route('home', {
         path: '/home'
     });
 

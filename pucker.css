@@ -125,22 +125,7 @@ input, input[type="text"]{
     border-style: solid;
 }
 
-.circular {
-    background: #a9aaab;
-    border-radius: 82px;
-    height: 70px;
-    width: 70px;
-    border: 3.5px solid #ffffff;
-    font-family: Cambria;
-    font-size: 30px;
-    color: white;
-    line-height: 25px;
-    text-align: center;
-    background: #fff;
-    position: relative;
-    top: -10px;
-    z-index: 1;
-}
+
 
 
 .redback {
@@ -155,9 +140,6 @@ input, input[type="text"]{
     background-color: #FFCFCF;
 
 }
-
-
-
 
 .button {
     border-radius: 82px;

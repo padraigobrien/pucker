@@ -1,0 +1,29 @@
+.img {
+    top: 20px;
+
+    height: 350px;
+    width: 400px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+
+.circleblow {
+    opacity: .75;
+    position: absolute;
+    background: black;
+    border-radius: 182px;
+    height: 200px;
+    width: 200px;
+    top: 25%;
+    left: 20%;
+    border: 3.5px solid #ba9c6c;
+    font-family: Cambria;
+    font-size: 40px;
+    color: #ffffff;
+    line-height: 35px;
+    text-align: center;
+    background: black;
+    position: relative;
+    z-index: 1;
+}
