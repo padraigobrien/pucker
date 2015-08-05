@@ -16,8 +16,10 @@ meteorhacks:npm
 
 
 npm-container
-chriswessels:slideout
 joshdellay:jquery-mobile-menu
 jquery
 twbs:bootstrap
 autopublish
+tsega:bootstrap3-datetimepicker
+mdg:geolocation
+dburles:google-maps

@@ -1,9 +1,10 @@
 <template name="profile">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div align="center" class="row">
-                    <img src="http://graph.facebook.com/10152930081825925/picture" class="circular">
+                    <br>
+                    <img src="http://graph.facebook.com/10152930081825925/picture" class="circular" style="border: double">
                 </div>
                 <div class="row" align="center">
                     <h2>{{currentUser.profile.first_name }} {{ currentUser.profile.last_name }}</h2>
@@ -12,7 +13,6 @@
                     <input type="text" id="inputPhoneNumber" placeholder="Contact number">
                 </div>
                 <br>
-
                 <div class="row" align="center">
                     <textarea rows="5" class="textarea" id="inputAddress" placeholder="Address"></textarea>
                 </div>
@@ -21,25 +21,13 @@
                 </div>
                 <br>
                 <br>
-
                 <div class="row" align="center">
                     <input type="button" class="button" value="Submit">
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="header fixed">
-            <a href="#my-menu"></a>
-        </div>
-        <!-- Start of menu -->
-        <nav id="my-menu">
-            <ul>
-                <li><a href="/"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="/home/"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="/history/"><i class="fa fa-history"></i> History</a></li>
-                <li><a href="/news/"><i class="fa fa-newspaper-o    "></i> News</a></li>
-            </ul>
-        </nav>
+    <div>
+        {{> menu}}
     </div>
 </template>

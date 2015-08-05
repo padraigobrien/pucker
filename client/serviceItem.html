@@ -1,0 +1,17 @@
+<template name="serviceItem">
+    <div class="col-xs-12 col-sm-6 col-md-3 img" style="background-image: url('/{{image}}')">
+        <!--<a href="{{pathFor route='calender/'}}">-->
+        <a href="{{pathFor 'calender' serviceName=name }}">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="circleblow" style="align:center">
+            <br>
+            <p>{{name}}</p>
+            <hr>
+            <p>Book now</p>
+                </div>
+        </a>
+    </div>
+</template>

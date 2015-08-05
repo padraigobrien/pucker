@@ -10,7 +10,7 @@
 
 .circleblow {
     opacity: .75;
-    position: absolute;
+    position: relative;
     background: black;
     border-radius: 182px;
     height: 200px;
@@ -25,5 +25,5 @@
     text-align: center;
     background: black;
     position: relative;
-    z-index: 1;
+
 }

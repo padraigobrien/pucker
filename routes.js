@@ -6,10 +6,6 @@ OnBeforeActions = {
             console.log("not logged in")
             this.render('login');
         }
-        //else if (Meteor.userId()) {
-        //    console.log("logged in")
-        //    this.render('home');
-        //}
         else
         {
                 this.next();
@@ -20,6 +16,16 @@ OnBeforeActions = {
 Router.onBeforeAction(OnBeforeActions.loginRequired, {
     only: ['home','main','profile']
 });
+//login -done
+//profile - doneish
+//service
+//calendar - doneish
+//search - doing calender date and time and service and location of user
+//book
+//proposal
+//payment
+//confirmation
+//satisfaction
 
 Router.map( function () {
     this.route('profile', {
@@ -32,6 +38,21 @@ Router.map( function () {
 
     this.route('main', {
         path: '/main'
+    });
+
+    this.route('calender', {
+        path: '/calender/:serviceName',
+        data: function(){
+            console.log("Podge " + this.params.serviceName);
+            return {serviceName: this.params.serviceName};
+        }
+    });
+
+    this.route('search', {
+        path: '/search',
+        data: function() {
+            console.log("Podge")
+        }
     });
 });
 

@@ -21,3 +21,7 @@ App.icons({
 //    'ipad_landscape': 'resources/splash/splash-1024x768.png',
 //    'ipad_landscape_2x': 'resources/splash/splash-1024x768@2x.png'
 //});
+
+App.accessRule('*.google.com/*');
+App.accessRule('*.googleapis.com/*');
+App.accessRule('*.gstatic.com/*');

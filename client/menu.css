@@ -1,0 +1,84 @@
+/* CSS declarations go here */
+#my-menu:not( .mm-menu) {
+    display: none;
+}
+
+.header,
+.content,
+.footer
+{
+    text-align: left;
+}
+.header,
+.footer
+{
+    background: #bbb;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 40px;
+
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    padding: 0 50px;
+}
+.header > p,
+.footer > p {
+    margin-left: 10px;
+}
+
+.header.fixed
+{
+    background-color:  #ffcfcf;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.footer.fixed
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.header a
+{
+    background: center center no-repeat transparent;
+    background-image: url( data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADhJREFUeNpi/P//PwOtARMDHQBdLGFBYtMq3BiHT3DRPU4YR4NrNAmPJuHRJDyahEeT8Ii3BCDAAF0WBj5Er5idAAAAAElFTkSuQmCC );
+
+    display: block;
+    width: 40px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: -10;
+}
+
+.content
+{
+    padding: 150px 50px 50px 50px;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    line-height: 1;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+h1, h2, h3
+{
+    font-size: 18px;
+}
+h4, h5, h6
+{
+    font-size: 16px;
+}
+p
+{
+    margin: 0 0 10px 0;
+}

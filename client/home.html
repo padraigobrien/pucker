@@ -1,58 +1,16 @@
 <template name="home">
-    <div class="row">
     <div class="container-fluid">
-        <div class="col-xs-12 col-sm-6 col-md-3 img" style="background-image: url('/nails.png')">
-            <div class="circleblow" style="border: double; align:center">
-            <br>
-            <p>Nails</p>
-            <hr>
-            <p>Book now</p>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#each services}}
+                {{> serviceItem}}
+            {{/each}}
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 img"  style="background-image: url('/hair.png')">
-            <div class="circleblow" style="border: double">
-                <br>
-                <p>Blow-Dry</p>
-                <hr>
-                <p>Book now</p>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 img"  style="background-image: url('/makeup.png')">
-            <div class="circleblow" style="border: double">
-                <br>
-                <p>Makeup</p>
-                <hr>
-                <p>Book now</p>
-            </div>
-        </div>
-
-            <!--<div class="img" style="background-image: url('/hair.png'); border: double">-->
-                <!--<div id="facebook-login" style="border: double">-->
-                    <!--<div class="circleblow" style="border: double">-->
-                        <!--<br>-->
-                        <!--<p>Blow-Dry</p>-->
-                        <!--<hr>-->
-                        <!--<p>Book now</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-
-        </div>
-
     </div>
-    <div id="page" class="container">
-        <div class="header fixed">
-            <a href="#my-menu"></a>
         </div>
-        <div class="content">
-        </div>
-        <!-- Start of menu -->
-        <nav id="my-menu">
-            <ul>
-                <li><a href="/"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="/home/"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="/history/"><i class="fa fa-history"></i> History</a></li>
-                <li><a href="/news/"><i class="fa fa-newspaper-o    "></i> News</a></li>
-            </ul>
-        </nav>
+    <div>
+        {{> menu}}
     </div>
 </template>
+
+

@@ -1,0 +1,16 @@
+<template name="search">
+    <div class="container-fluid">
+        <div class="row">
+    <div class="map-container">
+        {{#unless geolocationError}}
+            {{> googleMap name="map" options=mapOptions}}
+        {{else}}
+            Geolocation failed: {{geolocationError}}
+        {{/unless}}
+    </div>
+    <div>
+        {{> menu}}
+    </div>
+    </div>
+    </div>
+</template>
