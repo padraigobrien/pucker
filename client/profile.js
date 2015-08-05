@@ -1,10 +1,5 @@
 Template.profile.events({
-    'click .button':function(event){
-        console.log('clicked on submit');
-        Router.go('home');
+    'click .button': function () {
+       console.log("clicked login");
     }
 });
-
-Template.profile.rendered = function() {
-    console.log("Hello");
-}

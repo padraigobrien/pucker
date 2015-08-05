@@ -7,7 +7,7 @@ Template.menu.events({
     }
 });
 
-Template.menu.rendered = function () {
+Template.menu.onRendered = function () {
     $("#my-menu").mmenu({
         classes: "mm-black",
         // mm-white mm-black mm-light
