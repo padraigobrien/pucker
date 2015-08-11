@@ -1,10 +1,13 @@
 <template name="profile">
-    <div class="container">
+    <div>
+        {{> menu}}
+    </div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div align="center" class="row">
                     <br>
-                    <img src="http://graph.facebook.com/10152930081825925/picture" class="circular" style="border: double">
+                    <img src="http://graph.facebook.com/{{currentUser.profile.id}}/picture?type=large" class="circular" style="border: double">
                 </div>
                 <div class="row" align="center">
                     <h2>{{currentUser.profile.first_name }} {{ currentUser.profile.last_name }}</h2>
@@ -27,7 +30,5 @@
             </div>
         </div>
     </div>
-    <div>
-        {{> menu}}
-    </div>
+
 </template>

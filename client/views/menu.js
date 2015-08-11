@@ -7,7 +7,7 @@ Template.menu.events({
     }
 });
 
-Template.menu.onRendered = function () {
+Template.menu.onRendered(function () {
     $("#my-menu").mmenu({
         classes: "mm-black",
         // mm-white mm-black mm-light
@@ -33,4 +33,4 @@ Template.menu.onRendered = function () {
     }, {
         transitionDuration: 100  // does not seem to work
     });
-};
+});

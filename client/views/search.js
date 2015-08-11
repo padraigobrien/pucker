@@ -9,11 +9,18 @@ if (Meteor.isClient) {
 
             function addInfoWindow(marker, message) {
 
-                var infoWindow = new google.maps.InfoWindow({
-                    content: message
-                });
+                var infoWindowData={
+                    message:"You must see this, it's amazing !",
+                    url:"http://myapp.com/content/amazingstuff",
+                    title:"Amazing stuff, click me !"
+                };
+
+                var siteInfoWindowContent = Blaze.toHTMLWithData(Template.infoWindowContent, infoWindowData);
+                var infoWindow = new google.maps.InfoWindow();
+                var infoWindowHtmlContent =  Template.infoWindowContent;
+                infoWindow.setContent(siteInfoWindowContent);
                 google.maps.event.addListener(marker, 'click', function () {
-                        infoWindow.open(map.instance, marker);
+                       infoWindow.open(map.instance, marker);
                 });
             }
 
@@ -30,21 +37,12 @@ if (Meteor.isClient) {
                         icon:'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
                     });
 
-                    var contentString = "<p>Hellow world </p>";
-
-
-
-
                     google.maps.event.addListener(marker, 'dragend', function(event) {
                         Markers.update(marker.id, { $set: { lat: event.latLng.lat(), lng: event.latLng.lng() }});
                     });
 
-                    addInfoWindow(marker, "<a href='{{pathFor 'calender' serviceName=name }}'> Name:" + document.name + "<br>Title:" + document.title + "</a>");
-                    //google.maps.event.addListener(marker, 'click', function() {
-                    //    console.log("clicked infowindow")
-                    //    infowindow.open(map,marker);
-                    //});
 
+                    addInfoWindow(marker, "<a href='/confirmation'> Name:" + document.name + "<br>Title:" + document.title + "</a>");
                     markers[document._id] = marker;
                 },
                 changed: function (newDocument, oldDocument) {
@@ -61,6 +59,30 @@ if (Meteor.isClient) {
         });
     });
 
+    //Template.search.events(
+    //    {
+    //        'click': function () {
+    //
+    //            //var siteInfoWindowContent = Blaze.toHTMLWithData(Template.siteInfoWindow, infoWindowData);
+                //google.maps.event.addListener(_markers[newDocument._id], 'mouseover', function(event) {
+                //    infoWindow.setContent(siteInfoWindowContent);
+                //    infoWindow.open(map.instance, this);
+                //});
+                //var infoWindowData={
+                //    message:"You must see this, it's amazing !",
+                //    url:"http://myapp.com/content/amazingstuff",
+                //    title:"Amazing stuff, click me !"
+                //};
+                //
+                //var siteInfoWindowContent = Blaze.toHTMLWithData(Template.infoWindowContent, infoWindowData);
+                //var infoWindow = new google.maps.InfoWindow();
+                //var infoWindowHtmlContent =  Template.infoWindowContent;
+                //infoWindow.setContent(siteInfoWindowContent);
+                //infoWindow.open(map, marker);
+        //    }
+        //
+        //}
+    //)
     Meteor.startup(function() {
         GoogleMaps.load();
     });
@@ -76,6 +98,9 @@ if (Meteor.isClient) {
                     zoom: 15
                 };
             }
+        },
+        myserviceName: function() {
+            return this.serviceName;
         }
     });
 }

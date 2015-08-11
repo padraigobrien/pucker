@@ -1,0 +1,16 @@
+<template name="home">
+    <div>
+        {{> menu}}
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                {{#each services}}
+                    {{> serviceItem}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</template>
+
+
