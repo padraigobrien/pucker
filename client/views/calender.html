@@ -2,18 +2,25 @@
     <div>
         {{> menu}}
     </div>
-    <div class="container-fluid" style="background-color: #a9aaab">
+    <div class="container-fluid">
         <div class="row" align="center">
             <h2>Service: {{serviceName}}</h2>
         </div>
         <div class="row" align="center">
-        <div class="input-group datetimepicker">
-            <!--<span class="input-group-addon"><i class="fa fa-calendar"></i></span>-->
-            <input id="datepicker" class="set-due-date form-control" type="text"/>
+
+            <form class="new-appointment">
+                <div class="attendance well well-small">
+                <div class="input-group datetimepicker">
+                    <input id="datepicker" name="datepicker" class="set-due-date form-control" type="text"/>
+
+                </div>
+
+        <div class="row" align="center">
+            <input type="submit" class="button" value="Submit">
         </div>
-    </div>
-    <div class="row" align="center">
-        <input type="button" class="button" value="Submit">
-    </div>
-    </div>
+                </div>
+        </form>
+            </div>
+        </div>
+
 </template>

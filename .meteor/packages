@@ -15,7 +15,6 @@ iron:router
 meteorhacks:npm
 
 
-npm-container
 joshdellay:jquery-mobile-menu
 jquery
 twbs:bootstrap
@@ -23,3 +22,5 @@ autopublish
 tsega:bootstrap3-datetimepicker
 mdg:geolocation
 dburles:google-maps
+mrgalaxy:stripe
+noorderstorm:hammer

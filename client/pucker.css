@@ -5,6 +5,7 @@ body {
 
 .navbar-default {
     background-color: #ffcfcf;
+    margin-bottom: 0px;
 
 }
 
@@ -14,9 +15,11 @@ body {
     height: 190px;
     width: 190px;
     position: relative;
+    border: double;
 }
 
 .circle {
+
     position: absolute;
     background: #a9aaab;
     border-radius: 82px;

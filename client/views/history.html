@@ -1,0 +1,34 @@
+<template name="history">
+    <div>
+      {{> menu}}
+    </div>
+    <div class="container">
+        <div class="details">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Service</th>
+            <th>Service Representative</th>
+            <th>Location</th>
+            <th>Booking date</th>
+            <th>Payment reference</th>
+        </tr>
+        </thead>
+        <tbody>
+
+          {{#each bookings}}
+            <tr>
+              <td>{{serviceName}}</td>
+              <td>{{serviceRepresentative}}</td>
+              <td>{{location}}</td>
+              <td>{{bookingDate}}</td>
+              <td>{{paymentReference}}</td>
+            </tr>
+          {{/each}}
+
+
+        </tbody>
+    </table>
+        </div>
+    </div>
+</template>

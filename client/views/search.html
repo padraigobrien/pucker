@@ -3,16 +3,31 @@
         {{> menu}}
     </div>
     <div class="container-fluid">
-        <div class="row">
-            <h2>{{myserviceName}}</h2>
-    <div class="map-container">
-        {{#unless geolocationError}}
-            {{> googleMap name="map" options=mapOptions}}
-        {{else}}
-            Geolocation failed: {{geolocationError}}
-        {{/unless}}
-    </div>
-
-    </div>
+        <div class="row-fluid">
+            <div class="col-md-4">
+                <div class="details">
+                    <h1>Results for {{serviceName}} </h1>
+                    <div class="description">click on a marker to see details of service rep</div>
+                    <div class="attendance well well-small">
+                        <div class="muted who"><b>Who: {{serviceRepName}}</b></div>
+                        <div><b>What: {{serviceName}} </b></div>
+                        <div><b>Where: {{serviceRepLocation}} </b></div>
+                        <div><b>When: {{bookingdatetime}}</b></div>
+                    </div>
+                    <div class="rsvp-buttons">
+                        <input type="button" value="Book me in" class="btn btn-small rsvp_maybe">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="map-container">
+                    {{#unless geolocationError}}
+                        {{> googleMap name="map" options=mapOptions}}
+                    {{else}}
+                        Geolocation failed: {{geolocationError}}
+                    {{/unless}}
+                </div>
+            </div>
+        </div>
     </div>
 </template>

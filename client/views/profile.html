@@ -13,14 +13,14 @@
                     <h2>{{currentUser.profile.first_name }} {{ currentUser.profile.last_name }}</h2>
                 </div>
                 <div class="row" align="center">
-                    <input type="text" id="inputPhoneNumber" placeholder="Contact number">
+                    <input type="text" id="inputPhoneNumber" placeholder="Contact number"  value="{{currentUser.profile.phonenumber}}">
                 </div>
                 <br>
                 <div class="row" align="center">
-                    <textarea rows="5" class="textarea" id="inputAddress" placeholder="Address"></textarea>
+                    <textarea rows="5" class="textarea" id="inputAddress" placeholder="Address"  value="{{currentUser.profile.address}}"></textarea>
                 </div>
                 <div class="row" align="center">
-                    <input type="text" class="inputbottom" id="inputPhoneNumber" placeholder="Use current location">
+                    <input type="text" name="locationinput" class="inputbottom" id="inputCurrentLocation" placeholder="Use current location" value="{{currentUser.profile.location.lat}},{{currentUser.profile.location.lon}}">
                 </div>
                 <br>
                 <br>

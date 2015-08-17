@@ -1,28 +1,11 @@
 Markers = new Mongo.Collection('markers');
 
-if (Meteor.isClient) {
+
     Template.search.onCreated(function() {
         GoogleMaps.ready('map', function(map) {
             //google.maps.event.addListener(map.instance, 'click', function(event) {
             //    Markers.insert({ lat: event.latLng.lat(), lng: event.latLng.lng() });
             //});
-
-            function addInfoWindow(marker, message) {
-
-                var infoWindowData={
-                    message:"You must see this, it's amazing !",
-                    url:"http://myapp.com/content/amazingstuff",
-                    title:"Amazing stuff, click me !"
-                };
-
-                var siteInfoWindowContent = Blaze.toHTMLWithData(Template.infoWindowContent, infoWindowData);
-                var infoWindow = new google.maps.InfoWindow();
-                var infoWindowHtmlContent =  Template.infoWindowContent;
-                infoWindow.setContent(siteInfoWindowContent);
-                google.maps.event.addListener(marker, 'click', function () {
-                       infoWindow.open(map.instance, marker);
-                });
-            }
 
             var markers = {};
 
@@ -41,8 +24,11 @@ if (Meteor.isClient) {
                         Markers.update(marker.id, { $set: { lat: event.latLng.lat(), lng: event.latLng.lng() }});
                     });
 
+                    google.maps.event.addListener(marker, 'click', function () {
+                        Session.set('serviceRepName', document.name);
+                        Session.set('serviceRepLocation', document.lat + ' ' + document.lng);
+                    });
 
-                    addInfoWindow(marker, "<a href='/confirmation'> Name:" + document.name + "<br>Title:" + document.title + "</a>");
                     markers[document._id] = marker;
                 },
                 changed: function (newDocument, oldDocument) {
@@ -59,32 +45,10 @@ if (Meteor.isClient) {
         });
     });
 
-    //Template.search.events(
-    //    {
-    //        'click': function () {
-    //
-    //            //var siteInfoWindowContent = Blaze.toHTMLWithData(Template.siteInfoWindow, infoWindowData);
-                //google.maps.event.addListener(_markers[newDocument._id], 'mouseover', function(event) {
-                //    infoWindow.setContent(siteInfoWindowContent);
-                //    infoWindow.open(map.instance, this);
-                //});
-                //var infoWindowData={
-                //    message:"You must see this, it's amazing !",
-                //    url:"http://myapp.com/content/amazingstuff",
-                //    title:"Amazing stuff, click me !"
-                //};
-                //
-                //var siteInfoWindowContent = Blaze.toHTMLWithData(Template.infoWindowContent, infoWindowData);
-                //var infoWindow = new google.maps.InfoWindow();
-                //var infoWindowHtmlContent =  Template.infoWindowContent;
-                //infoWindow.setContent(siteInfoWindowContent);
-                //infoWindow.open(map, marker);
-        //    }
-        //
-        //}
-    //)
     Meteor.startup(function() {
         GoogleMaps.load();
+        Session.setDefault('serviceRepName', '');
+        Session.setDefault('serviceRepLocation','');
     });
 
     Template.search.helpers({
@@ -99,8 +63,19 @@ if (Meteor.isClient) {
                 };
             }
         },
-        myserviceName: function() {
-            return this.serviceName;
+
+        serviceRepName: function() {
+            return Session.get('serviceRepName');
+        },
+
+        serviceRepLocation: function() {
+            return Session.get('serviceRepLocation');
         }
     });
-}
+
+    Template.search.events({
+        'click .rsvp-buttons':function(event){
+            Router.go('confirmation', {serviceName: this.serviceName}, {query: 'serviceRepName='+Session.get('serviceRepName')+'&serviceRepLocation='+Session.get('serviceRepLocation')+'&bookingdatetime='+bookingdatetime});
+        }
+    })
+
